@@ -30,5 +30,7 @@
     -[] Logic should be able to complete addition, subtraction, multiplication, and division.
     -[] Send back ok when done
     -[] GET request to get problem history
+    -[x] GET request tested in POSTMAN
     -[] POST request for the logic
+    -[x] POST request tested in POSTMAN
     
