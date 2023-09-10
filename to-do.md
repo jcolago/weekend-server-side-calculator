@@ -3,20 +3,20 @@
     - Init NPM
 
 - Files
-    -[] Create index.html
-    -[] Create client.js
-    -[] Create jquery.js
-    -[] Create style.css
-    -[] Create server.js
+    -[x] Create index.html
+    -[x] Create client.js
+    -[x] Create jquery.js
+    -[x] Create style.css
+    -[x] Create server.js
     -[] Create modules.js
 
 - HTML
-    -[] Link jquery.js, style.css, and client.js to html file
-    -[] Make 2 number inputs
-    -[] Make buttons for operators
-    -[] Submit button (=)
-    -[] Button to clear all inputs (C)
-    -[] Section for history
+    -[x] Link jquery.js, style.css, and client.js to html file
+    -[x] Make 2 number inputs
+    -[x] Make buttons for operators
+    -[x] Submit button (=)
+    -[x] Button to clear all inputs (C)
+    -[x] Section for history
 
 - Client.js
     -[] Take in inputs create an object
