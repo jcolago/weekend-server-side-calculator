@@ -1,6 +1,6 @@
 - NPM
-    - Install NPM
-    - Init NPM
+    - [x] Install NPM
+    - [x] Init NPM
 
 - Files
     -[x] Create index.html
