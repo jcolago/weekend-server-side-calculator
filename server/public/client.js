@@ -1,15 +1,67 @@
 $(() => {
-console.log('js and jq');
-clickHandlers();
+    console.log('js and jq');
+    clickHandlers();
 })
+
+
 
 let operator = '';
 
+
+
+
 function postProblem(){
-    console.log('Incoming problem');
+    const firstNumber = $('#numInput1').val();
+     const secondNumber = $('#numInput2').val();
+     let solution = 0
+    
+$('#numInput1').val("");
+$('#numInput2').val("");
+
+    $.ajax({
+        method: 'POST',
+        url: '/history',
+        data: {
+            num1: firstNumber,
+            operator: operator,
+            num2: secondNumber,
+            solution: solution,
+    }
+    }).then(function (response){
+        getHistory();
+    }).catch(function(err){
+        alert(err.responseText);
+    });
 }
 
-function clickHandlers(){
+function getHistory(){
+    $.ajax({
+        method: 'GET',
+        url: '/history'
+    }).then(function (response){
+        appendHistory(response);
+        appendSolution(response);
+    });
+}
+
+function appendHistory(response) {
+
+    $('#history').empty();
+    for (let i=0; i<response.length; i++){
+        let math = response[i];
+        $('#history').append(`
+        <li>${math.num1} ${math.operator} ${math.num2} = ${math.solution}</li>
+        `)
+        $('#numInput').val('');
+    }
+}
+
+function appendSolution(response){
+    let x = (response.length - 1);
+    $('#result').text(response[x].solution)
+
+}
+function clickHandlers() {
     $('#addButton').on('click', addButton);
     $('#subButton').on('click', subButton);
     $('#multButton').on('click', multButton);
@@ -18,23 +70,23 @@ function clickHandlers(){
     $('#clear').on('click', clearInputs);
 }
 
-function addButton(){
-    operator = '+';
+function addButton() {
+    operator = `+`;
     console.log(operator)
 }
-function subButton(){
+function subButton() {
     operator = '-';
     console.log(operator)
 }
-function multButton(){
+function multButton() {
     operator = '*';
     console.log(operator)
 }
-function divButton(){
+function divButton() {
     operator = '/';
     console.log(operator)
 }
-function clearInputs(){
+function clearInputs() {
     $('#numInput1').val('');
     $('#numInput2').val('');
     console.log('Cleared inputs');

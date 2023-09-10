@@ -8,7 +8,7 @@
     -[x] Create jquery.js
     -[x] Create style.css
     -[x] Create server.js
-    -[] Create modules.js
+    -[x] Create modules.js
 
 - HTML
     -[x] Link jquery.js, style.css, and client.js to html file
@@ -19,18 +19,18 @@
     -[x] Section for history
 
 - Client.js
-    -[] Take in inputs create an object
-    -[] Click listeners and events for buttons
-    -[] Send to server via POST
-    -[] GET request to get the solution back
-    -[] Append the history after every problem
+    -[x] Take in inputs create an object
+    -[x] Click listeners and events for buttons
+    -[x] Send to server via POST
+    -[x] GET request to get the solution back
+    -[x] Append the history after every problem
 
 - Server.js
-    -[] Connect server/express
-    -[] Logic should be able to complete addition, subtraction, multiplication, and division.
-    -[] Send back ok when done
-    -[] GET request to get problem history
+    -[x] Connect server/express
+    -[x] Logic should be able to complete addition, subtraction, multiplication, and division.
+    -[x] Send back ok when done
+    -[x] GET request to get problem history
     -[x] GET request tested in POSTMAN
-    -[] POST request for the logic
+    -[x] POST request for the logic
     -[x] POST request tested in POSTMAN
     
