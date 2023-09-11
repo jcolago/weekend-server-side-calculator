@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    flex-direction: column;
+    max-height: 100%;
+    max-width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: auto;
+    text-align: center;
+    background-image: url(images/calculator.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+header {
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    text-decoration: underline;
+}
+
+.inputs {
+    display:flexbox;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding-top: 5px;
+    padding-bottom: 0;
+}
+
+.history {
+    text-align: center;
+}
