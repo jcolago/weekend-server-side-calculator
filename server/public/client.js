@@ -20,6 +20,7 @@ function postProblem(){
 $('#numInput1').val("");
 $('#numInput2').val("");
 
+
 //ajax post to send data package to server side
     $.ajax({
         method: 'POST',
