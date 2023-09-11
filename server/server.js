@@ -18,15 +18,17 @@ app.get('/history', (req, res) => {
 })
 //POST logic for when the equals button is clicked
 app.post('/history', (req, res) => {
-
+    
+    
+    let problem = req.body;
     //Error message if one of the inputs is missing
-    if (!req.body.num1 || !req.body.operator || !req.body.num2) {
+    if (!problem.num1 || !problem.operator || !problem.num2) {
         res.status(400).send("Please enter 2 numbers and select an operator");
         return;
     }
 
     //Logic for math based on the operator selected
-    let problem = req.body;
+    
     if (problem.operator === "+") {
         problem.solution = Number(problem.num1) + Number(problem.num2)
     } else if (problem.operator === "-") {
