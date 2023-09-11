@@ -17,6 +17,13 @@ function postProblem() {
     const firstNumber = $('#numInput1').val();
     const secondNumber = $('#numInput2').val();
     let solution = 0
+
+    //Guard statement to run if either input field is empty or no operator is chosen
+    if (!firstNumber || !operator || !secondNumber){
+        alert('Please make sure to fill in both number inputs and choose an operator.');
+        return;
+    }
+
     //Clears inputs after click 
     $('#numInput1').val("");
     $('#numInput2').val("");
