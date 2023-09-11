@@ -3,6 +3,7 @@
 $(() => {
     console.log('js and jq');
     clickHandlers();
+    getHistory();
 })
 
 
@@ -11,17 +12,17 @@ let operator = '';
 
 //Function to send POST to server when equals button is 
 //clicked
-function postProblem(){
+function postProblem() {
     //Grabs number values from inputs
     const firstNumber = $('#numInput1').val();
-     const secondNumber = $('#numInput2').val();
-     let solution = 0
-   //Clears inputs after click 
-$('#numInput1').val("");
-$('#numInput2').val("");
+    const secondNumber = $('#numInput2').val();
+    let solution = 0
+    //Clears inputs after click 
+    $('#numInput1').val("");
+    $('#numInput2').val("");
 
 
-//ajax post to send data package to server side
+    //ajax post to send data package to server side
     $.ajax({
         method: 'POST',
         url: '/history',
@@ -30,30 +31,33 @@ $('#numInput2').val("");
             operator: operator,
             num2: secondNumber,
             solution: solution,
-    }
-    //Refreshes history after each problem is submitted
-    }).then(function (response){
+        }
+        //Refreshes history after each problem is submitted
+    }).then(function (response) {
         getHistory();
-    }).catch(function(err){
+    }).catch((err) => {
         alert(err);
     });
 }
 
 //GET function to get the history array and append lists
-function getHistory(){
+function getHistory() {
     $.ajax({
         method: 'GET',
         url: '/history'
-    }).then(function (response){
+    }).then(function (response) {
         appendHistory(response);
         appendSolution(response);
-    });
+    })
+        .catch((err) => {
+            console.log(err);
+        })
 }
 
 function appendHistory(response) {
-//Loops through the response from the getHistory function and appends the history list
+    //Loops through the response from the getHistory function and appends the history list
     $('#history').empty();
-    for (let i=0; i<response.length; i++){
+    for (let i = 0; i < response.length; i++) {
         let math = response[i];
         $('#history').append(`
         <li>${math.num1} ${math.operator} ${math.num2} = ${math.solution}</li>
@@ -62,7 +66,7 @@ function appendHistory(response) {
     }
 }
 //Appends the solution to the DOM for the most recent problem
-function appendSolution(response){
+function appendSolution(response) {
     let x = (response.length - 1);
     $('#result').text(response[x].solution)
 
