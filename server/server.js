@@ -21,13 +21,8 @@ app.post('/history', (req, res) => {
     
     
     let problem = req.body;
-    //Error message if one of the inputs is missing
-    if (!problem.num1 || !problem.operator || !problem.num2) {
-        res.status(400).send("Please enter 2 numbers and select an operator");
-        return;
-    }
-
-    //Logic for math based on the operator selected
+    
+     //Logic for math based on the operator selected
     
     if (problem.operator === "+") {
         problem.solution = Number(problem.num1) + Number(problem.num2)
