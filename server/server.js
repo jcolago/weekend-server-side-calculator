@@ -18,12 +18,12 @@ app.get('/history', (req, res) => {
 })
 //POST logic for when the equals button is clicked
 app.post('/history', (req, res) => {
-    
-    
+
+
     let problem = req.body;
-    
-     //Logic for math based on the operator selected
-    
+
+    //Logic for math based on the operator selected
+
     if (problem.operator === "+") {
         problem.solution = Number(problem.num1) + Number(problem.num2)
     } else if (problem.operator === "-") {
@@ -39,9 +39,16 @@ app.post('/history', (req, res) => {
     //Test for POST route
     console.log('POST request for /history');
     res.sendStatus(200);
-})
+});
+//DELETE request for /history. Will empty the historyArray when run.
+app.delete('/history', (req, res) => {
+    console.log('Request for DELETE on /history');
+    historyArray.length = 0;
+    res.sendStatus(204);
+});
 
 
 app.listen(PORT, () => {
     console.log('Listening on port:', PORT)
+
 })

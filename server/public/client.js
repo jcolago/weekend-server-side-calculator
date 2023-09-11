@@ -78,6 +78,21 @@ function appendSolution(response) {
     $('#result').text(response[x].solution)
 
 }
+//This function will run when the clear history button is click. This will empty the history array and append the DOM.
+function clearHistory(){
+    $.ajax({
+        method: 'DELETE',
+        url: '/history',
+    })
+    .then(()=>{
+        console.log('Delete request for /history');
+        getHistory();
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+}
+
 //The click handlers for the buttons on DOM
 function clickHandlers() {
     $('#addButton').on('click', addButton);
@@ -86,6 +101,7 @@ function clickHandlers() {
     $('#divButton').on('click', divButton);
     $('#equals').on('click', postProblem);
     $('#clear').on('click', clearInputs);
+    $('#clearHistory').on('click', clearHistory)
 }
 //Functions that run on the click of the button
 function addButton() {
